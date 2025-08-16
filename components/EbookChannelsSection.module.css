@@ -1,0 +1,161 @@
+.ebookSection {
+  background: linear-gradient(135deg, #e0e7ff 0%, #fce7f3 100%);
+  padding: var(--section-spacing) 0;
+}
+
+.sectionTitle {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--gray);
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+.channelsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.channelCard {
+  background: white;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  text-decoration: none;
+  display: block;
+}
+
+.channelCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent, rgba(99, 102, 241, 0.05));
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.channelCard:hover::before {
+  transform: translateX(100%);
+}
+
+.channelCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+.channelIcon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+
+.channelName {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--dark);
+}
+
+.channelAction {
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.channelCard:hover .channelAction {
+  color: var(--secondary);
+}
+
+.priceInfo {
+  margin-top: 80px;
+  text-align: center;
+}
+
+.priceTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: white;
+  padding: 24px 40px;
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+  margin-bottom: 20px;
+}
+
+.priceLabel {
+  font-size: 18px;
+  color: var(--gray);
+  font-weight: 600;
+}
+
+.priceAmount {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.originalPrice {
+  font-size: 20px;
+  color: #cbd5e1;
+  text-decoration: line-through;
+}
+
+.priceNote {
+  font-size: 18px;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .channelsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+  }
+  
+  .channelCard {
+    padding: 24px 16px;
+  }
+  
+  .priceTag {
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px 30px;
+  }
+}

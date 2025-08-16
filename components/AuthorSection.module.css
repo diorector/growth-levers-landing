@@ -1,0 +1,235 @@
+.authorSection {
+  background: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.sectionTitle {
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 24px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  text-align: center;
+  color: var(--gray);
+  font-size: 20px;
+  max-width: 700px;
+  margin: 0 auto 60px;
+  line-height: 1.6;
+}
+
+.authorContainer {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 80px;
+  align-items: start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.authorImageWrapper {
+  position: relative;
+  justify-self: center;
+}
+
+.authorPhoto {
+  width: 400px;
+  height: 500px;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15);
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.authorPhoto:hover {
+  transform: translateY(-5px);
+}
+
+.authorPhotoBg {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: -20px;
+  bottom: -20px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 30px;
+  opacity: 0.2;
+  z-index: 1;
+}
+
+.authorPhotoFallback {
+  width: 400px;
+  height: 500px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 80px;
+  box-shadow: 0 30px 60px rgba(99, 102, 241, 0.15);
+}
+
+.authorContent {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.authorName {
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 800;
+  margin: 0;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.authorTitle {
+  font-size: 20px;
+  color: var(--gray);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.authorBio {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0;
+}
+
+.authorQuote {
+  padding: 32px;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--dark);
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+}
+
+.authorQuote::before {
+  content: '"';
+  font-size: 60px;
+  color: var(--primary);
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  font-family: serif;
+  opacity: 0.3;
+}
+
+.authorStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.statItem {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #f8fafc 0%, white 100%);
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(99, 102, 241, 0.1);
+  border-color: var(--primary);
+}
+
+.statNumber {
+  font-size: 36px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: var(--gray);
+  margin: 8px 0 0 0;
+  font-weight: 600;
+}
+
+.floatingShape {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  top: 10%;
+  right: -200px;
+  animation: float-1 20s infinite ease-in-out;
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (max-width: 1024px) {
+  .authorContainer {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .authorPhoto,
+  .authorPhotoFallback {
+    width: 350px;
+    height: 450px;
+  }
+
+  .authorStats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .authorQuote {
+    padding: 24px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .authorContainer {
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .authorPhoto,
+  .authorPhotoFallback {
+    width: 300px;
+    height: 400px;
+  }
+
+  .authorStats {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .authorQuote {
+    padding: 24px;
+    font-size: 18px;
+  }
+}
